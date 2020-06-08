@@ -13,7 +13,7 @@ function! go#implements#Implements(selected) abort
     endif
     let [l:line, l:col] = getpos('.')[1:2]
     let [l:line, l:col] = go#lsp#lsp#Position(l:line, l:col)
-    let l:fname = expand('%:p')
+    let l:fname = expand('%:t')
     call go#lsp#Implements(l:fname, l:line, l:col, funcref('s:parse_output'))
     return
   else

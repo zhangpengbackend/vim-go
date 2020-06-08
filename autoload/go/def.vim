@@ -246,7 +246,7 @@ function! go#def#StackUI() abort
     endif
 
     call add(stackOut, printf("%s %d %s|%d col %d|%s",
-          \ prefix, i+1, entry["file"], entry["line"], entry["col"], entry["ident"]))
+          \ prefix, i+1, fnamemodify(entry["file"], ":t"), entry["line"], entry["col"], entry["ident"]))
     let i += 1
   endwhile
 

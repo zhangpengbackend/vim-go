@@ -851,7 +851,7 @@ function! s:handleLocations(next, msg) abort
       call go#util#EchoError(printf('%s (line %s): %s at %s', l:fname, l:line, v:exception, v:throwpoint))
     endtry
 
-    let l:item = printf('%s:%s:%s: %s', go#path#FromURI(l:loc.uri), l:line, go#lsp#lsp#PositionOf(l:content, l:loc.range.start.character), l:content)
+    let l:item = printf('%s:%s:%s: %s', fnamemodify(go#path#FromURI(l:loc.uri), ":t"), l:line, go#lsp#lsp#PositionOf(l:content, l:loc.range.start.character), l:content)
 
     let l:result = add(l:result, l:item)
   endfor

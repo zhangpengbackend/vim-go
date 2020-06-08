@@ -207,7 +207,7 @@ function! go#lsp#message#References(file, line, col) abort
           \ 'method': 'textDocument/references',
           \ 'params': {
           \   'textDocument': {
-          \       'uri': go#path#ToURI(a:file)
+          \       'uri': go#path#ToURI(fnamemodify(a:file, ":p"))
           \   },
           \   'position': s:position(a:line, a:col),
           \   'context': {

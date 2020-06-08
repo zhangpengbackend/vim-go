@@ -110,13 +110,13 @@ function! ctrlp#decls#enter() abort
       let space .= " "
     endfor
 
-    call add(s:decls, printf("%s\t%s |%s:%s:%s|\t%s",
+    call add(s:decls, printf("%s\t%s |\t%s |%s:%s:%s",
           \ decl.ident . space,
           \ decl.keyword,
-          \ fnamemodify(decl.filename, ":p"),
+          \ decl.full,
+          \ fnamemodify(decl.filename, ":t"),
           \ decl.line,
           \ decl.col,
-          \ decl.full,
           \))
   endfor
 endfunc
